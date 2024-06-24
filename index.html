@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src = "movement.js" ></script>
+    <script src = "fishGen.js" ></script>
+  </head>
+
+
+  <body>
+    <a-scene fishgen id = "scene" background="color:#026F90">
+
+      <a-entity id="look" look-controls camera position="0 5 0"></a-entity>
+
+      <a-assets>    
+        <a-asset-item
+          id = "fish"
+          src = "fish/scene.gltf"
+        ></a-asset-item>
+        
+        <a-asset-item
+          id="terrainMap"
+          src="underWaterTerrain/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="diverModel"
+          src="diver.glb"
+        ></a-asset-item>        
+      </a-assets>
+
+      <a-entity id="diver"
+            gltf-model="#diverModel"
+            position="0 4.75 -0.1"
+            scale="0.125 0.125 0.125"
+            rotation = "0 180 0"
+        ></a-entity>
+
+      <a-entity
+        id="terrain"
+        gltf-model="#terrainMap"
+        position="0 0 0"
+        scale = "4 4 4"
+        wsad
+        animation="property: position; to: 0 0 1000;easing:linear; loop: true; dur: 10000000"
+        >
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
